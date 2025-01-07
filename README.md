@@ -1,1 +1,1 @@
-#smatrt_hospital
+#smart_hospital
