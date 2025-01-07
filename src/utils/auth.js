@@ -1,6 +1,6 @@
 import { setLocalS, getLocalS, delLocalS } from "./index.js";
 
-const TokenKey = 'xLongBigDataToken'
+const TokenKey = 'BigDataToken'
 
 export function getToken() {
   return JSON.parse(getLocalS(TokenKey))

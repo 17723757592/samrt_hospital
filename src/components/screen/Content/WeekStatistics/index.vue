@@ -2,9 +2,9 @@
   <BorderFrameOne class="week-statistics-container">
     <BorderFrameFlyLight>
       <FlexContent>
-        <BorderFrameTitleFour title="监控平台周访问量">
+        <BorderFrameTitleFour title="本周门诊、住院记录">
           <template #extra>
-            <span class="unit">(单位：次)</span>
+            <span class="unit">(单位：人)</span>
           </template>
         </BorderFrameTitleFour>
         <div class="content">
@@ -44,12 +44,12 @@ const chart = reactive({
   },
   series: [
     {
-      name: "移动端访问量",
-      property: "mobile",
+      name: "住院人数",
+      property: "hospitalization",
     },
     {
-      name: "PC端访问量",
-      property: "pc",
+      name: "门诊人数",
+      property: "outpatient_service",
     },
   ],
   tooltip: {
@@ -67,7 +67,7 @@ const chart = reactive({
       ]; // 鼠标在上方时 tooltip 显示到下方，鼠标在下方时 tooltip 显示到上方。
       return obj;
     },
-    formatter: (p) => formatTooltip(p, { unit: "次", scale: contrastRatio.value }),
+    formatter: (p) => formatTooltip(p, { unit: "人", scale: contrastRatio.value }),
   },
   grid: {
     top: "11%",

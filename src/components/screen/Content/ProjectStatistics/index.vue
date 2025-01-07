@@ -2,7 +2,7 @@
   <BorderFrameOne>
     <BorderFrameFlyLight>
       <FlexContent>
-        <BorderFrameTitleFour title="服务项目类型" />
+        <BorderFrameTitleFour title="科室病床使用占比" />
         <div class="content">
           <DataLoading :loading="apiLoading" :data="chart.chartData">
             <SegmentPieChart
@@ -48,10 +48,9 @@ const chart = reactive({
       const fontSize = 14;
 
       const { name, marker, color, value } = p;
-
       return `<div style="font-size:${fontSize * scale}px;">
         ${marker} ${name}
-        <span style="color:${color};" >${value}</span> 个 <span style="color:${color};" >（${(
+        <span style="color:${color};" >${value}</span> 床 <span style="color:${color};" >（${(
         (value / total.value) *
         100
       ).toFixed(2)}%）</span>
@@ -67,10 +66,11 @@ const chart = reactive({
     "#ffbf4b",
     "#fd65b9",
     "#b14bff",
-    // "#653fff",
     "#3886fb",
     "#45f3fd",
     "#97ff84",
+    "#b7d5bf",
+    "#fff"
   ],
   autoplay: true,
 });

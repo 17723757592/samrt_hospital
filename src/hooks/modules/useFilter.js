@@ -1,8 +1,5 @@
 /*
  * 模块 : 过滤器
- * 作者 : 罗永梅（381612175@qq.com）
- * 日期 : 2021-11-01
- * 版本 : version 1.0
  */
 
 export default function() {

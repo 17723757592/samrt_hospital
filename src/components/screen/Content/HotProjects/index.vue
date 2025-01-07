@@ -1,8 +1,9 @@
+<!-- 热门医师展示模块 -->
 <template>
   <BorderFrameOne>
     <BorderFrameFlyLight>
       <FlexContent>
-    <BorderFrameTitleFour title="热门项目" />
+    <BorderFrameTitleFour title="本周明星医师" />
     <div class="content">
       <DataLoading :loading="apiLoading" :data="tags">
         <div ref="contentRef" class="tag-content">

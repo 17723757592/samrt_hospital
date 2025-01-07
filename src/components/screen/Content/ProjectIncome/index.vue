@@ -1,14 +1,15 @@
+<!-- 优秀科室模块 -->
 <template>
   <BorderFrameOne>
     <BorderFrameFlyLight>
       <FlexContent>
-        <BorderFrameTitleFour title="项目收益" />
+        <BorderFrameTitleFour title="本院优秀科室" />
         <div class="content">
           <DataLoading :loading="apiLoading" :data="list">
             <div class="number">
-              <div class="number__text">总收益</div>
+              <div class="number__text">累计诊治患者</div>
               <DigitalNumber :data="money" :oldData="oldMoney" />
-              <div class="number__text">万元</div>
+              <div class="number__text">人</div>
             </div>
             <div class="spinning-ball mt-20">
               <div class="spinning-ball__bottom"></div>
@@ -50,9 +51,10 @@ const oldMoney = ref(0);
 
 const handleApiData = (data) => {
   oldMoney.value = deepClone(money.value);
+  console.log(data);
 
-  list.value = data?.hotProjectData.filter((e, i) => i < 6) || [];
-  money.value = data?.money || 0;
+  list.value = data?.projectStatisticsData.filter((e, i) => i < 6) || [];
+  money.value = data?.statisticsData.serviceUsers || 0
 };
 
 const { apiLoading, contrastRatio } = useScreenModuleData(handleApiData);
@@ -82,7 +84,7 @@ const { apiLoading, contrastRatio } = useScreenModuleData(handleApiData);
 
   &__content {
     width: size(260);
-    height: size(260);
+    height: size(300);
     border-radius: 50%;
     color: #1f6f9b;
     transform-style: preserve-3d;
@@ -91,7 +93,7 @@ const { apiLoading, contrastRatio } = useScreenModuleData(handleApiData);
   }
 
   &__bottom {
-    height: 65%;
+    height: 75%;
     left: 0;
     right: 0;
     bottom: 0;

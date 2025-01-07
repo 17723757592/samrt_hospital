@@ -1,8 +1,5 @@
 /*
  * 模块 : 时间模块
- * 作者 : 罗永梅（381612175@qq.com）
- * 日期 : 2022-08-11
- * 版本 : version 1.0
  */
 import { ref } from "vue";
 import calendar from "@/utils/calendar";

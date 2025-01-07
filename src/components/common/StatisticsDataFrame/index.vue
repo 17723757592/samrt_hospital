@@ -19,7 +19,6 @@ defineOptions(
     name: "StatisticsDataFrame"
   }
 );
-
 const props = defineProps({
   direction: {
     type: String,

@@ -49,6 +49,7 @@ const props = defineProps({
     }),
   },
   // 颜色列表
+  // 父组件有传数据，请在父组件修改数据 projectstatisitics
   colorList: {
     type: Array,
     default: () => [
@@ -58,6 +59,8 @@ const props = defineProps({
       "#3886fb",
       "#45f3fd",
       "#97ff84",
+      "#b7d5bf",
+      "#fff"
     ],
   },
   // 缩放基数
@@ -73,7 +76,7 @@ const props = defineProps({
   // 持续时间
   duration: {
     type: Number,
-    default: 1500,
+    default: 1501,
   },
   // 文本大小
   labelFontSize: {
@@ -224,14 +227,13 @@ const setOption = (chartData = []) => {
 
 const handleData = (chartData, opacity) => {
   const { axis, series, colorList } = props;
-
   return chartData.map((e, i) => ({
     name: e[axis.property],
     value: e[series.property],
     itemStyle: {
       color: colorList[i],
       opacity,
-    },
+    },  
   }));
 };
 

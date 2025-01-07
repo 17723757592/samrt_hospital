@@ -32,7 +32,7 @@ const props = defineProps({
   // 高度
   height: {
     type: [Number, String],
-    default: "100%",
+    default: "92%",
   },
   // 图表数据
   chartData: {

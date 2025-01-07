@@ -163,7 +163,7 @@ const setOption = (chartData = []) => {
         data,
       });
     }
-
+    // console.log(series);
     // 折线图
     if (props.lineProperty.indexOf(property) >= 0) {
       customSeries.push({

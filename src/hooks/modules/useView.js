@@ -1,8 +1,5 @@
 /*
  * 模块 : 大屏视图
- * 作者 : 罗永梅（381612175@qq.com）
- * 日期 : 2022-08-15
- * 版本 : version 1.0
  */
 
 import { ref, reactive, markRaw } from "vue";

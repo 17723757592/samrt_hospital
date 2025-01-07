@@ -1,8 +1,9 @@
+<!-- 流行疾病成人、儿童分布情况 -->
 <template>
   <BorderFrameOne>
     <BorderFrameFlyLight>
       <FlexContent>
-        <BorderFrameTitleFour title="各地市服务数据统计" />
+        <BorderFrameTitleFour title="主要疾病年龄分布情况" />
         <div class="content">
           <DataLoading :loading="apiLoading" :data="chart.chartData">
             <MixedLineBarChart
@@ -43,22 +44,22 @@ const chart = reactive({
   },
   series: [
     {
-      name: "服务企业",
-      property: "companines",
+      name: "儿童",
+      property: "companines",//child
     },
     {
-      name: "服务用户",
-      property: "users",
+      name: "成人",
+      property: "users", //adult
     },
   ],
   tooltip: {
     trigger: "axis",
     formatter: (p) =>
-      formatTooltip(p, { unit: ["家", "人"], scale: contrastRatio.value }),
+      formatTooltip(p, { unit: ["起", "起"], scale: contrastRatio.value }),
   },
   grid: {
     top: "18%",
-    bottom: "1%",
+    bottom: "5%",
     left: "1%",
     right: "1%",
   },
@@ -68,8 +69,8 @@ const chart = reactive({
   autoplay: true,
   barProperty: ["companines"],
   lineProperty: ["users"],
-  barAxisName: "企业（家）",
-  lineAxisName: "用户（人）",
+  barAxisName: "儿童（起）",
+  lineAxisName: "成人（起）",
 });
 
 const handleApiData = (data) => {

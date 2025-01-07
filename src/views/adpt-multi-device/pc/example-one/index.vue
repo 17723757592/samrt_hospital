@@ -5,10 +5,11 @@
         <ProjectPercent />
       </div>
       <div class="module-2 pt-15">
-        <CompanyStatistics />
+        <ProjectIncome/>
       </div>
       <div class="module-3 pt-15">
-        <CompanyProject />
+        <!-- <CompanyProject /> -->
+        <WeekStatistics/>
       </div>
     </div>
     <div class="screen-content__center">
@@ -31,8 +32,10 @@
 </template>
 
 <script setup>
-import CompanyStatistics from "@/components/screen/Content/CompanyStatistics/index.vue";
-import CompanyProject from "@/components/screen/Content/CompanyProject/index.vue";
+// import CompanyStatistics from "@/components/screen/Content/CompanyStatistics/index.vue";
+// import CompanyProject from "@/components/screen/Content/CompanyProject/index.vue";
+import ProjectIncome from  "@/components/screen/Content/ProjectIncome/index.vue";
+import WeekStatistics from "@/components/screen/Content/WeekStatistics/index.vue"
 import ProjectPercent from "@/components/screen/Content/ProjectPercent/index.vue";
 import TotalStatistics from "@/components/screen/Content/TotalStatistics/index.vue";
 import CityStatistics from "@/components/screen/Content/CityStatistics/index.vue";

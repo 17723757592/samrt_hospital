@@ -93,7 +93,7 @@ const setOption = (chartData = []) => {
     axis,
     series,
     scale,
-    labelFontSize,
+    labelFontSize,  
     grid,
     topNum,
     topColors,
@@ -112,13 +112,22 @@ const setOption = (chartData = []) => {
   });
 
   // 处理显示数据
-  let seriesData = thisChartData.map((e) => e[series.property]);
-
+  let seriesData = [];
+  thisChartData.forEach((e) => {
+    if(e[series.childNum]){
+      seriesData.push(e[series.property] + e[series.childNum])
+    }
+    else{
+      seriesData.push(e[series.property])
+    }
+    // console.log(e[series.property] + e[series.childNum]);
+  });
+  
   // 网格
   const customGrid = {
     top: 0,
     bottom: -70 * scale,
-    left: -50 * scale,
+    left: -80 * scale,
     right: 0,
     containLabel: true,
     ...grid,
@@ -158,7 +167,7 @@ const setOption = (chartData = []) => {
         align: "left",
         verticalAlign: "middle",
         fontSize,
-        margin: 95 * scale,
+        margin: 120 * scale, 
         rich: {
           a: {
             ...customYAxisRich,

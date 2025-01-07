@@ -1,10 +1,11 @@
+<!-- 医院实时诊断情况 -->
 <template>
   <div class="map-statistics-contaienr">
     <div class="map-statistics__map">
       <!-- <StarContainer> -->
       <Particles id="starParticles" class="particles-star" />
       <DataLoading :loading="apiLoading" :data="chart.chartData">
-        <MsgMap
+        <!-- <MsgMap
           :geo-data="geoJson"
           :scale="contrastRatio"
           :chart-data="chart.chartData"
@@ -16,7 +17,8 @@
           :map-name="chart.mapName"
           :map-zoom="1.2"
           :label-font-size="chart.labelFontSize"
-        />
+        /> -->
+        <CompanyProject/>
       </DataLoading>
       <!-- </StarContainer> -->
     </div>
@@ -62,6 +64,7 @@
 <script setup>
 import { reactive, ref, inject, watch, onMounted, onUnmounted } from "vue";
 // import StarContainer from "@/components/common/StarContainer/index.vue";
+import CompanyProject from "@/components/screen/Content/CompanyProject/index.vue";
 import Particles from "@/components/common/Particles/index.vue";
 import MsgMap from "@/components/chart/MsgMap/index.vue";
 import geoJson from "@/assets/json/guangxi.json";
@@ -263,4 +266,7 @@ const formatContent = (val) => {
   position: absolute;
   top: 0;
 }
+// .module-4 {
+//   height: size(500);
+// }
 </style>

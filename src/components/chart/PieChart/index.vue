@@ -51,7 +51,7 @@ const props = defineProps({
   // 颜色列表
   colorList: {
     type: Array,
-    default: () => ["#ffbf4b", "#fd65b9", "#b14bff", "#3886fb", "#45f3fd", "#97ff84"],
+    default: () => ["#ffbf4b", "#fd65b9", "#b14bff", "#3886fb", "#45f3fd", "#97ff84", "#6d1c27",],
   },
   // 缩放基数
   scale: {

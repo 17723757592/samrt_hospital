@@ -5,7 +5,8 @@
         <ServiceDescription />
       </div>
       <div class="module-2 pt-15">
-        <DataMonitor />
+        <!-- <DataMonitor /> -->
+        <CompanyStatistics/>
       </div>
       <div class="module-3 pt-15">
         <WeekStatistics />
@@ -24,17 +25,19 @@
         <HotProjects />
       </div>
       <div class="module-2 pt-15">
-        <ProjectUse />
+        <!-- <ProjectUse /> -->
+        <MeicineRanking/>
       </div>
-      <div class="module-3 pt-15">
+      <!-- <div class="module-3 pt-15">
         <ProjectIncome />
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
 
 <script setup>
 import WeekStatistics from "@/components/screen/Content/WeekStatistics/index.vue";
+import CompanyStatistics from "@/components/screen/Content/CompanyStatistics/index.vue";
 import HotProjects from "@/components/screen/Content/HotProjects/index.vue";
 import ServiceDescription from "@/components/screen/Content/ServiceDescription/index.vue";
 import ProjectUse from "@/components/screen/Content/ProjectUse/index.vue";
@@ -42,6 +45,7 @@ import DataMonitor from "@/components/screen/Content/DataMonitor/index.vue";
 import MapStatistics from "@/components/screen/Content/MapStatistics/index.vue";
 import ProjectIncome from "@/components/screen/Content/ProjectIncome/index.vue";
 import CountStatistics from "@/components/screen/Content/CountStatistics/index.vue";
+import MeicineRanking from "@/components/screen/Content/MeicineRanking/index.vue";
 </script>
 
 <style lang="scss" scoped>
@@ -72,16 +76,16 @@ import CountStatistics from "@/components/screen/Content/CountStatistics/index.v
     flex-direction: column;
 
     .module-1 {
-      min-height: size(280);
+      min-height: size(270);
       height: auto;
     }
     .module-2 {
       flex: 1;
-      height: 30%;
+      height: 40%;
     }
     .module-3 {
       // flex: 1;
-      height: 35%;
+      height: 42.5%;
     }
   }
 
@@ -109,11 +113,12 @@ import CountStatistics from "@/components/screen/Content/CountStatistics/index.v
       height: 25%;
     }
     .module-2 {
-      height: 40%;
-    }
-    .module-3 {
+      // height: 70%;
       flex: 1;
     }
+    // .module-3 {
+    //   flex: 1;
+    // }
   }
 }
 </style>

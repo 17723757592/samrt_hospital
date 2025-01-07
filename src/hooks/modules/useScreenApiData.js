@@ -1,8 +1,5 @@
 /*
  * 模块 : 监控平台请求数据配置
- * 作者 : 罗永梅（381612175@qq.com）
- * 日期 : 2023-10-26
- * 版本 : version 2.0
  */
 import { provide, ref, onUnmounted } from "vue";
 import { ElMessage } from "element-plus";

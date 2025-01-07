@@ -3,13 +3,13 @@ export default {
    * @type {string} *
    * @description 系统标题
    */
-  sysTitle: "xLong家里蹲数据监控平台",
+  sysTitle: "智慧医院可视化系统",
 
   /**
    * @type {string} *
    * @description 版权公司
    */
-  copyrightCompany: "xLong家里蹲有限责任公司",
+  copyrightCompany: "智慧医院可视化系统--小吴制作",
 
   /**
    * @type {number} *

@@ -5,8 +5,8 @@
     <div class="list-container mt-20">
       <div class="list-item">
         <div class="list-item__desc">
-          <h3>多设备尺寸自适应</h3>
-          <p>一套设计稿，根据平台（移动端、PC端和超宽屏幕设备）自适应展示对应内容</p>          
+          <h3>PC端，移动端适配</h3>
+          <p>根据移动端、PC端和超宽屏幕设备自适应展示</p>          
         </div>
         <div class="list-item__btn">
           <el-button type="primary" @click="toPage('/adpt-multi-device')">预览</el-button>
@@ -14,27 +14,18 @@
       </div>
       <div class="list-item">
         <div class="list-item__desc">
-          <h3>自适应缩放</h3>
-          <p>固定设计稿，根据屏幕保持原来的高宽比进行自适应缩放，适合用于指定屏幕尺寸展示的情况</p>
+          <h3>可视化大屏--自适应缩放</h3>
+          <p>根据屏幕保持原来的高宽比进行自适应缩放</p>
           <!-- <p>（若设计稿为1920*1080px，PC端正常预览，若设计稿为16:9的宽屏模式，PC底部会出现滚动条，可进行滚动预览）</p> -->
         </div>
         <div class="list-item__btn">
           <el-button type="primary" @click="toPage('/adpt-scale')">预览</el-button>
         </div>
       </div>
-      <div class="list-item">
-        <div class="list-item__desc">
-          <h3>组件示例</h3>
-          <p>列出项目中部分常用的自定义组件，有空会更新...</p>          
-        </div>
-        <div class="list-item__btn">
-          <el-button type="primary" @click="toPage('/components')">预览</el-button>
-        </div>
-      </div>
     </div>
     <div class="copyright">
         Copyright © {{ year }}
-        <a class="link" target="blank" href="https://github.com/xLong1029">
+        <a class="link" target="blank" href="">
           {{ copyrightCompany }}
         </a>
         All Rights Reserved.

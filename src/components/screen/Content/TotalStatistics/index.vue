@@ -1,3 +1,4 @@
+<!-- center-model_show -->
 <template>
   <div class="total-statistics-container">
     <!-- <StarContainer> -->
@@ -46,12 +47,14 @@
         <StatisticsDataFrame :name="developApps.name">
           <template #value>
             <span :style="`color: ${developApps.valueColor}`">
-              <CountUp
-                :delay="countUpOption.delay"
-                :startVal="developApps.oldValue"
-                :endVal="developApps.value"
-                :options="countUpOption"
-              />
+              <FadeNum v-model:value="developApps.changeNum">
+                <CountUp
+                  :delay="countUpOption.delay"
+                  :startVal="developApps.oldValue"
+                  :endVal="developApps.value"
+                  :options="countUpOption"
+                />
+              </FadeNum>
             </span>
           </template>
         </StatisticsDataFrame>
@@ -92,7 +95,7 @@ const { CountUp, countUpOption } = useCountUp();
 const isFrist = ref(true);
 
 const serviceCompanines = reactive({
-  name: "服务企业数量",
+  name: "执行手术台数",
   oldValue: 0,
   value: 0,
   valueColor: "#ffe66d",
@@ -100,7 +103,7 @@ const serviceCompanines = reactive({
 });
 
 const serviceUsers = reactive({
-  name: "服务用户数量",
+  name: "总计挂号人数",
   oldValue: 0,
   value: 0,
   valueColor: "#45f3fd",
@@ -108,7 +111,7 @@ const serviceUsers = reactive({
 });
 
 const developApps = reactive({
-  name: "开发应用总数",
+  name: "今日门诊人数",
   oldValue: 0,
   value: 0,
   valueColor: "#71ffaa",
@@ -116,7 +119,7 @@ const developApps = reactive({
 });
 
 const monitorServers = reactive({
-  name: "监控服务器数量",
+  name: "累计抢救人数",
   oldValue: 0,
   value: 0,
   valueColor: "#fd65b9",
@@ -125,20 +128,25 @@ const monitorServers = reactive({
 
 const handleApiData = (data) => {
   if (!data) return false;
-
   const {
     serviceCompanines: companines,
     serviceUsers: users,
-    developApps: apps,
+    // developApps: apps,
     monitorServers: servers,
   } = data.statisticsData;
+
+  const {
+    outpatient_service: apps
+  } = data.weekData.at(- new Date().getDay());
 
   if (!isFrist.value) {
     serviceCompanines.oldValue = serviceCompanines.value;
     serviceUsers.oldValue = serviceUsers.value;
+    developApps.oldValue = developApps.value
 
     serviceCompanines.changeNum = companines - serviceCompanines.value;
     serviceUsers.changeNum = users - serviceUsers.value;
+    developApps.changeNum = apps - developApps.value
   }
 
   serviceCompanines.value = companines;
@@ -150,7 +158,7 @@ const handleApiData = (data) => {
   if (isFrist.value) {
     isFrist.value = false;
   }
-};
+};  
 
 useScreenModuleData(handleApiData);
 </script>

@@ -1,9 +1,3 @@
-/*
- * 模块 : 图表配置项模块
- * 作者 : 罗永梅（381612175@qq.com）
- * 日期 : 2023-10-11
- * 版本 : version 2.0
- */
 import { isArray, isFunction } from 'lodash';
 import { deepClone } from '@/utils';
 

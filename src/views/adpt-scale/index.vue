@@ -4,7 +4,7 @@
   <!-- <ScaleContainer :width="1920" :height="1920 / screen.width * screen.height"> -->
     <div class="screen-container">
       <Header />
-      <div class="screen-content-container"><PCScreen /></div>
+      <div class="screen-content-container"><ScreenComponents /></div>
       <Nav :active="activeNavIndex" @change-nav="handleChangeNav" />
     </div>
   </ScaleContainer>
@@ -17,7 +17,7 @@ import { clearTimer } from "@/utils";
 import ScaleContainer from "@/components/common/ScaleContainer/index.vue";
 import Header from "@/components/screen/Header/index.vue";
 import Nav from "@/components/screen/Nav/index.vue";
-import PCScreen from "@/views/adpt-multi-device/pc/index.vue";
+import ScreenComponents from "@/views/adpt-multi-device/pc/index.vue";
 import Api from "@/api/screen";
 
 const { 
@@ -45,9 +45,9 @@ onMounted(() => {
   init();
 });
 
-onUnmounted(() => {
-  clearTimer([apiTimer.value]);
-});
+// onUnmounted(() => {
+//   clearTimer([apiTimer.value]);
+// });调用hooks相关方式已经在onUnmounted中使用方法清楚了定时器
 
 const init = () => {
   stopLoopGetData();

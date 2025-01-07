@@ -1,10 +1,11 @@
+<!-- 优秀科室本周诊断数量 -->
 <template>
   <BorderFrameOne class="company-statistics-container">
     <BorderFrameFlyLight>
       <FlexContent>
         <BorderFrameTitleFour :title="chart.title">
           <template #extra>
-            <span class="unit">(单位：项)</span>
+            <span class="unit">(单位：人)</span>
           </template>
         </BorderFrameTitleFour>
         <div class="content">
@@ -42,7 +43,7 @@ import hooks from "@/hooks";
 const { useScreenModuleData } = hooks;
 
 const chart = reactive({
-  title: "服务企业数量统计",
+  title: "本周优秀科室诊断量",
   chartData: [],
   axis: {
     property: "name",
@@ -51,13 +52,14 @@ const chart = reactive({
     property: "num",
   },
   labelFontSize: 14,
-  center: ["50%", "57%"],
+  center: ["50%", "50%"],
   radius: 55,
   colorList: ["#42cdff", "#1fff83"],
 });
 
 const handleApiData = (data) => {
   chart.chartData = data?.companinesData || [];
+  console.log(data);
 };
 
 const { apiLoading, contrastRatio } = useScreenModuleData(handleApiData);

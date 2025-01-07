@@ -1,8 +1,9 @@
+<!-- 医师力量分布情况移动端 -->
 <template>
   <BorderFrameOne class="project-percent">
     <BorderFrameFlyLight>
       <FlexContent>
-        <BorderFrameTitleFour :title="`${year}年承接项目类别`" />
+        <BorderFrameTitleFour :title="`${hospitailName}医师力量分布`"/>
         <div class="content">
           <DataLoading :loading="apiLoading" :data="chartData">
             <div
@@ -33,7 +34,7 @@ import CirclePercentChart from "@/components/chart/CirclePercentChart/index.vue"
 import hooks from "@/hooks";
 
 const { useChartOption, useScreenModuleData } = hooks;
-
+const hospitailName = "医院";
 const chartData = ref([]);
 
 const colorList = ref([

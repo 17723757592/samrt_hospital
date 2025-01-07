@@ -8,12 +8,12 @@
       <ProjectPercent v-if="screen.width >= 560" />
       <ProjectPercentMobile v-else />
     </div>
-    <div class="module-3 mt-15">
+    <!-- <div class="module-3 mt-15">
       <CompanyStatistics />
     </div>
     <div class="module-4 mt-15">
       <CompanyProject />
-    </div>
+    </div> -->
     <div class="module-5 mt-15">
       <ProjectStatistics />
     </div>
@@ -68,15 +68,15 @@ const screen = inject("getScreen");
 }
 
 .module-4 {
-  height: size(400);
+  height: size(500);
 }
 
 .module-5 {
-  height: size(260);
+  height: size(280);
 }
 
 .module-6 {
-  height: size(350);
+  height: size(400);
 }
 
 .module-7 {

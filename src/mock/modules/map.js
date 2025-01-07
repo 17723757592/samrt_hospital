@@ -7,13 +7,13 @@ const Random = Mock.Random;
 const phonePrefixs = new Array("139", "138", "137", "136", "135", "134", "159", "158", "157", "150", "151", "152", "188", "187", "182", "183", "184", "178", "130", "131", "132", "156", "155", "186", "185", "176", "133", "153", "189", "180", "181", "177");
 
 const systems = [
-  "XLONG家里蹲-OA办公系统",
-  "XLONG家里蹲-企业信息化系统",
-  "XLONG家里蹲-扫码抗疫情",
-  "XLONG家里蹲-伊鑫商城",
-  "XLONG家里蹲-柳州乘车码",
-  "XLONG家里蹲-在线开票系统",
-  "XLONG家里蹲-医疗照护系统",
+  "马子阳",
+  "廖梅",
+  "叶致远",
+  "周子异",
+  "梅艳",
+  "夏嘉伦",
+  "云志杰",
 ];
 
 let msg = Mock.mock({
@@ -41,7 +41,7 @@ msg.list.forEach(e => {
 });
 
 
-// 获取地市数据
+// 
 const getCoordinateData = () => {
   return guangxiCityJson.map(({ name, coordinate }) => ({
     name,
@@ -50,7 +50,7 @@ const getCoordinateData = () => {
 };
 let coordinateData = getCoordinateData();
 
-// 获取地市数据
+// 
 const getMapData = () => {
   return guangxiCityJson.map(({ name, coordinate }) => ({
     name,
@@ -64,7 +64,7 @@ let mapData = getMapData();
 // 获取事项消息
 const getMsgData = () => {
   return msg.list.map(({ realname, mobile, system, createdTime }) => ({
-    content: `[${realname}(${mobile})]在[${guangxiCityJson[Random.integer(0, guangxiCityJson.length - 1)].name}]使用了[${system}]`,
+    content: `[${realname}(${mobile})]患[${guangxiCityJson[Random.integer(0, guangxiCityJson.length - 1)].name}]--诊断医师：[${system}]`,
     createdTime,
   }));
 };
@@ -81,7 +81,7 @@ export default [
 
         const mobile = phonePrefixs[Math.floor(Math.random() * phonePrefixs.length)] + Mock.mock(/\d{8}/);
         const newMsg = {
-          content: `[${Random.cname()}(${mobile})]在[${mapData[changeMapIndex].name}]使用了[${systems[Random.integer(0, systems.length - 1)]}]`,
+          content: `[${Random.cname()}(${mobile})]患[${mapData[changeMapIndex].name}]--诊断医师：[${systems[Random.integer(0, systems.length - 1)]}]`,
           createdTime: Mock.mock('@now("yyyy-MM-dd hh:mm:ss")')
         };
 

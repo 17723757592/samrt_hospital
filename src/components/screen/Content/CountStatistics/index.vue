@@ -1,3 +1,4 @@
+<!-- 本周好评/差评模块 -->
 <template>
   <BorderFrameOne class="count-statistics">
     <div class="count-container">
@@ -97,9 +98,9 @@ const { CountUp, countUpOption } = useCountUp();
 const isFrist = ref(true);
 
 const coverCities = reactive({
-  name: "累计覆盖城市",
+  name: "本周投诉量",
   img: iconCover,
-  unit: "个",
+  unit: "次",
   oldValue: 0,
   value: 0,
   valueColor: "#45f3fd",
@@ -107,7 +108,7 @@ const coverCities = reactive({
 });
 
 const normalApps = reactive({
-  name: "正常运行应用",
+  name: "本周好评量",
   img: iconApp,
   unit: "个",
   oldValue: 0,
@@ -117,9 +118,9 @@ const normalApps = reactive({
 });
 
 const vipUsers = reactive({
-  name: "Vip注册用户",
+  name: "本周治愈量",
   img: iconVip,
-  unit: "个",
+  unit: "人",
   oldValue: 0,
   value: 0,
   valueColor: "#ffe66d",

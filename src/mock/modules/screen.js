@@ -1,14 +1,14 @@
 import Mock from "mockjs";
 import { handleMock, handleResponse } from "./../mock-handle.js";
 import guangxiCityJson from "./../../assets/json/guangxi-city.json";
-
+// import getDoctorInformation from "../getDoctor.js"
 const Random = Mock.Random;
 
 let statisticsData = {
-  serviceCompanines: Random.integer(3000, 3500),
-  serviceUsers: Random.integer(60000, 65000),
+  serviceCompanines: Random.integer(9000, 20000), //手术台数
+  serviceUsers: Random.integer(100000, 205000), //挂号数
   developApps: 55,
-  monitorServers: 10,
+  monitorServers: Random.integer(5000, 10000),  //抢救人数
   money: 131,
 };
 
@@ -20,72 +20,99 @@ let countData = {
 
 let projectDescription = [
   {
-    title: "项目研发",
+    title: "良好环境",
     desciption:
-      "我们拥有顶尖的IT技术团队，拥有一套完善的技术标准和技术架构，可以为企业提供信息化支持和解决方案。可开发但不限于H5响应式网站、企业管理系统、小程序和门户网站。",
+      "本医院作为国内顶级智慧型医院具备良好的就医环境，交通便利，环境优美",
   },
   {
-    title: "设计服务",
+    title: "优质服务",
     desciption:
-      "我们拥有专业的设计师，可以为您提供整站页面设计、App设计、平面广告图以及微信/QQ表情包等服务。",
+      "本院医护人员都经过高素质培训，专业技能过硬，服务态度优异",
   },
   {
-    title: "项目申报",
+    title: "投入研发",
     desciption:
-      "我们拥有丰富的行业取到和项目申报经验，可以协助企业获得政府支持和关注，为企业发展添砖加瓦。可申请的项目资金包括但不限于科技资金、文化资金和创新资金等。",
+      "本院致力推进医疗相关事业发展，相关医疗设备尽数为国内外先进水准设备",
   },
   {
-    title: "推广运营",
+    title: "人情关怀",
     desciption:
-      "我们拥有专业的运营团队，可以为您提供网站SEO、公众号图文托管维护、H5策划吸粉和用户运营等服务。",
+      "国家认定享受相关医疗优惠的，本院都将进行一定程度的帮扶，额外提供相关福利或优惠",
   },
 ];
 
 let projectStatisticsData = [
-  { value: Random.integer(5, 10), name: "智慧城市项目" },
-  { value: Random.integer(5, 10), name: "小程序应用" },
-  { value: Random.integer(5, 20), name: "企业网站" },
-  { value: Random.integer(1, 5), name: "电商项目" },
-  { value: Random.integer(1, 5), name: "App应用" },
-  { value: Random.integer(1, 5), name: "H5场景应用" },
+  { value: Random.integer(100, 200), name: "外科" },
+  { value: Random.integer(50, 100), name: "妇产科" },
+  { value: Random.integer(20, 100), name: "肿瘤科" },
+  { value: Random.integer(100, 300), name: "儿科" },
+  { value: Random.integer(50, 150), name: "骨科" },
+  { value: Random.integer(100, 200), name: "康复科" },
+  { value: Random.integer(50, 200), name: "内科" },
+  { value: Random.integer(80, 160), name: "其他" },
+];
+// 常用药排行
+let medicineusedData = [
+  { value: Random.integer(100, 200), name: "阿莫西林胶囊" },
+  { value: Random.integer(50, 100), name: "庆大霉素片" },
+  { value: Random.integer(20, 100), name: "头孢克洛胶囊" },
+  { value: Random.integer(100, 300), name: "甲硝唑片" },
+  { value: Random.integer(50, 150), name: "罗红霉素胶囊" },
+  { value: Random.integer(100, 200), name: "四环素片" },
+  { value: Random.integer(50, 200), name: "加替沙星片" },
+  { value: Random.integer(60, 160), name: "利巴韦林颗粒" },
+  { value: Random.integer(50, 370), name: "感冒灵颗粒" },
+  { value: Random.integer(60, 160), name: "酮康唑软膏" },
+  { value: Random.integer(20, 180), name: "罗痛定片" },
+  { value: Random.integer(30, 190), name: "布比卡因" },
+  { value: Random.integer(50, 160), name: "复方氨基酸" },
+  { value: Random.integer(60, 200), name: "落贝林" },
 ];
 
 let projects = [
-  { name: "智慧灯杆", status: -1, type: "web" },
-  { name: "智慧园区", status: 1, type: "web" },
-  { name: "智慧物流", status: 1, type: "web" },
-  { name: "扫码抗疫情", status: 1, type: "app" },
-  { name: "在线开发票", status: 1, type: "web" },
-  { name: "柳州乘车码", status: 1, type: "app" },
-  { name: "医疗照护", status: -1, type: "web" },
-  { name: "大数据驾驶舱", status: 1, type: "web" },
-  { name: "OA办公", status: 1, type: "web" },
-  { name: "项目申报", status: -1, type: "project" },
-  { name: "H5邀请函", status: 1, type: "design" },
-  { name: "微信表情包", status: 1, type: "design" },
+  { name: "云志杰", status: -1, type: "web" },
+  { name: "张秀英", status: 1, type: "web" },
+  { name: "韩睿", status: 1, type: "web" },
+  { name: "周子异", status: 1, type: "app" },
+  { name: "萧览", status: 1, type: "web" },
+  { name: "莫璐", status: 1, type: "app" },
+  { name: "梅艳", status: -1, type: "web" },
+  { name: "刘兰芳", status: 1, type: "web" },
+  { name: "夏嘉伦", status: 1, type: "web" },
+  { name: "叶致远", status: -1, type: "project" },
+  { name: "廖梅", status: 1, type: "design" },
+  { name: "马子阳", status: 1, type: "design" },
 ];
 
 let projectType = [
   {
-    num: Random.integer(50, 60),
-    name: "网站/应用开发",
+    num: Random.integer(50, 70),
+    name: "(副)主任医师",
   },
   {
-    num: Random.integer(25, 35),
-    name: "UI/平面设计",
+    num: Random.integer(5, 10),
+    name: "(副)主任药师",
   },
   {
-    num: Random.integer(15, 20),
-    name: "推广运营",
+    num: Random.integer(100, 300),
+    name: "(主治)医师",
+  },
+  {
+    num: Random.integer(200, 400),
+    name: "护士/师",
+  },
+  {
+    num: Random.integer(50, 200),
+    name: "其他",
   },
 ];
 
 let companyType = [
-  "国有企业",
-  "外商投资企业",
-  "集体企业",
-  "股份制企业",
-  "私营企业",
+  "23年12月",
+  "1月",
+  "2月",
+  "3月",
+  "4月",
 ];
 
 const weekday = [
@@ -102,11 +129,12 @@ const weekday = [
 const getWeekData = () => {
   let currentWeek = new Date().getDay() - 1;
   currentWeek = currentWeek < 0 ? 7 : currentWeek;
-
   return weekday.map((name, i) => {
     const obj = {
-      mobile: i <= currentWeek ? Random.integer(500, 2500) : 0,
-      pc: i <= currentWeek ? Random.integer(1000, 6000) : 0,
+      // mobile: i <= currentWeek ? Random.integer(500, 2500) : 0,
+      // pc: i <= currentWeek ? Random.integer(1000, 6000) : 0,
+      hospitalization: i <= currentWeek ? Random.integer(500, 2500) : 0,
+      outpatient_service: i <= currentWeek ? Random.integer(1000, 6000) : 0,
     };
     return {
       name,
@@ -115,7 +143,24 @@ const getWeekData = () => {
   });
 };
 let weekData = getWeekData();
+//获取前三用药历史情况
+const getMedicineusedData = () =>{
 
+  let medicine_rank = medicineusedData.sort(function(a,b){
+    return a.value - b.value
+  })
+  let medicine_history = medicine_rank.reverse().slice(0,3)
+  return companyType.map((item) => ({
+    name:item,
+    one:medicine_history[0].name,
+    two:medicine_history[1].name,
+    three:medicine_history[2].name,
+    one_value: Random.integer(200, 800),
+    two_value: Random.integer(180, 780),
+    three_value: Random.integer(170, 770),
+  }))
+}
+let medicinehistoryData = getMedicineusedData()
 // 获取项目类别占比
 const getProjectTypePercentData = () => {
   let total = 0;
@@ -124,14 +169,14 @@ const getProjectTypePercentData = () => {
     total += projectType[i].num;
   }
 
-  return projectType.map(({ name, num }) => ({
+  return projectType.map(({ name, num}) => ({
     name,
     percent: ((num / total) * 100).toFixed(2),
+    value:num
   }));
 };
 let projectTypePercentData = getProjectTypePercentData();
 
-// 获取地市数据
 const getCityData = () => {
   return guangxiCityJson.map(({ name, coordinate }) => ({
     name,
@@ -164,20 +209,20 @@ const getCompanyProjectData = () => {
 };
 let companyProjectData = getCompanyProjectData();
 
-// 获取服务企业数量
+// 
 const getCompaninesData = () => {
-  const average = statisticsData.serviceCompanines / companyType.length;
+  const average = statisticsData.serviceCompanines / projectStatisticsData.length;
   let arr = [];
   let last = statisticsData.serviceCompanines;
-  for (let i = 0; i < companyType.length; i++) {
+  for (let i = 0; i < projectStatisticsData.length-2; i++) {
     let num = Random.integer(
       Math.floor(average - 200),
       Math.floor(average + 200)
     );
 
     arr.push({
-      name: companyType[i],
-      num: i < companyType.length - 1 ? num : last,
+      name: projectStatisticsData[i].name,
+      num: i < projectStatisticsData.length - 1 ? num : last,
     });
 
     last -= num;
@@ -186,8 +231,11 @@ const getCompaninesData = () => {
 };
 let companinesData = getCompaninesData();
 
-// 获取项目使用情况
+//获取projects
 const getProjectUseData = () => {
+  // getDoctorInformation().then(res=>{
+  //   console.log(res.data.slice(0,7));
+  // })
   return projects.map((e) => ({
     ...e,
     users: Random.integer(
@@ -212,7 +260,7 @@ const getHotProjectData = () => {
 };
 let hotProjectData = getHotProjectData();
 
-// 获取监控项目数据
+// 
 const getProjecttMonitorData = () => {
   return projectStatisticsData.map((e) => ({
     ...e,
@@ -236,6 +284,15 @@ export default [
       handleMock(config, () => {
         const { nav } = config.query;
 
+        // 今日数据随机增加
+          // const today = new Date().getDay() - 1
+          let today = new Date().getDay() - 1;
+          today = today < 0 ? 6 : today;
+          const outpatient_service = [1, 2, 3][Random.integer(1, 2)];
+          const hospitalization = [1, 2, 3][Random.integer(0, 2)];
+          weekData[today].outpatient_service += outpatient_service
+          weekData[today].hospitalization += hospitalization
+
         // 导航一
         if (nav == 0) {
           // 总数统计
@@ -243,6 +300,14 @@ export default [
           const serviceUsersChangeNum = Random.integer(50, 200);
           statisticsData.serviceCompanines += serviceCompaninesChangeNum;
           statisticsData.serviceUsers += serviceUsersChangeNum;
+          // 今日数据随机增加
+          // const today = new Date().getDay() - 1
+          // let today = new Date().getDay() - 1;
+          // today = today < 0 ? 6 : today;
+          // const outpatient_service = [1, 2, 3][Random.integer(1, 2)];
+          // const hospitalization = [1, 2, 3][Random.integer(0, 2)];
+          // weekData[today].outpatient_service += outpatient_service
+          // weekData[today].hospitalization += hospitalization
 
           // 各地市服务数据统计
           cityData[Random.integer(0, cityData.length - 1)].companines +=
@@ -266,7 +331,6 @@ export default [
           // 收益统计
           statisticsData.money += Random.integer(1, 5);
 
-          // 正常运营应用数量统计
           const maintanApps = (projects.filter(e => e.status === -1)).length;
           countData.normalApps = statisticsData.developApps - maintanApps;
 
@@ -280,8 +344,12 @@ export default [
             hotProjectData,
             projectUseData,
             projectMonitorData,
+            companyProjectData,
+            companinesData,
             cityData,
-            countData
+            countData,
+            medicineusedData,
+            medicinehistoryData
           });
         }
       }),

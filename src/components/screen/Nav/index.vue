@@ -1,19 +1,19 @@
 <template>
   <div class="screen-nav-container">
-    <div
+    <!-- <div
       class="screen-nav__left"
       :class="{ 'is-active': active === 0 }"
       @click="emit('change-nav', 0)"
     >
       <span class="nav-text">导航一</span>
-    </div>
-    <div
+    </div> -->
+    <!-- <div
       class="screen-nav__right"
       :class="{ 'is-active': active === 1 }"
       @click="emit('change-nav', 1)"
     >
       <span class="nav-text">导航二</span>
-    </div>
+    </div> -->
   </div>
 </template>
 

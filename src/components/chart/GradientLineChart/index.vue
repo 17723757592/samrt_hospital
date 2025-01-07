@@ -10,7 +10,7 @@
 
 <script setup>
 import Chart from "@/components/chart/Default/index.vue";
-import { ref, watch } from "vue";
+import { ref, watch,defineProps } from "vue";
 import { graphic } from "echarts";
 import hooks from "@/hooks";
 
@@ -19,7 +19,6 @@ defineOptions(
     name: "GradientLineChart"
   }
 );
-
 const props = defineProps({
   title: {
     type: String,
@@ -53,7 +52,6 @@ const props = defineProps({
     type: Array,
     default: () => [
       {
-        name: "数值",
         property: "value",
       },
     ],
@@ -109,7 +107,8 @@ const props = defineProps({
   smooth: {
     type: Boolean,
     default: true,
-  }
+  },
+  // titleList:Array
 });
 
 const { useChartOption } = hooks;
@@ -129,8 +128,8 @@ const setOption = (chartData = []) => {
     tooltip,
     lineWidth,
     smooth,
+    // titleList
   } = props;
-
   const fontSize = labelFontSize * scale;
   const fontColor = "#FFFFFF";
 
@@ -142,7 +141,7 @@ const setOption = (chartData = []) => {
   series.forEach((e, index) => {
     const data = chartData.map((i) => i[e.property]);
     customSeries.push({
-      name: e.name,
+      name: legend[index],
       type: "line",
       smooth,
       areaStyle: {
@@ -212,7 +211,7 @@ const setOption = (chartData = []) => {
       color: fontColor,
       fontSize,
     },
-    data: series.map((e) => e.name),
+    // data: titleList,
     ...legend,
   };
 
